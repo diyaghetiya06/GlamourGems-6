@@ -12,3 +12,5 @@ GlamourGems is a PHP and MySQL jewelry store application designed to run locally
 6. Open `http://localhost/GlamourGems%206/`.
 
 Generated uploads are ignored by Git. The SQL schema and application source remain tracked so the project can be developed and shared safely.
+
+# Minor_project
