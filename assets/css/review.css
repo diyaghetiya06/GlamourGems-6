@@ -1,0 +1,306 @@
+/*======================================
+        REVIEW PAGE
+======================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f9f8f4;
+    color: #222;
+}
+
+
+/*======================================
+        REVIEW PAGE CONTAINER
+======================================*/
+
+.review-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 60px 20px;
+}
+
+
+/*======================================
+        MAIN CONTAINER
+======================================*/
+
+.review-container {
+    width: 100%;
+    max-width: 700px;
+}
+
+
+/*======================================
+        REVIEW HEADER
+======================================*/
+
+.review-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.review-header span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #c8a165;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+}
+
+.review-header h1 {
+    margin-bottom: 12px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 36px;
+    font-weight: 600;
+
+    color: #234b43;
+}
+
+.review-header p {
+    color: #777;
+
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/*======================================
+        FORM CARD
+======================================*/
+
+.review-form-card {
+    background: #ffffff;
+
+    padding: 35px;
+
+    border: 1px solid #e5e1d8;
+
+    border-radius: 14px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+}
+
+
+/*======================================
+        FORM GROUP
+======================================*/
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #234b43;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group label span {
+    color: #999;
+
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+/*======================================
+        INPUT
+======================================*/
+
+.form-group input[type="text"],
+.form-group input[type="file"],
+.form-group textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    background: #fafaf8;
+
+    border: 1px solid #ddd8ce;
+
+    border-radius: 7px;
+
+    color: #333;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    border-color: #c8a165;
+
+    background: #ffffff;
+}
+
+
+/*======================================
+        TEXTAREA
+======================================*/
+
+.form-group textarea {
+    min-height: 140px;
+
+    resize: vertical;
+}
+
+
+/*======================================
+        FILE INPUT
+======================================*/
+
+.form-group input[type="file"] {
+    cursor: pointer;
+
+    padding: 10px;
+}
+
+
+/*======================================
+        RATING STARS
+======================================*/
+
+.rating-stars {
+    display: flex;
+
+    flex-direction: row-reverse;
+
+    justify-content: flex-end;
+
+    gap: 6px;
+}
+
+.rating-stars input {
+    display: none;
+}
+
+.rating-stars label {
+    margin: 0;
+
+    color: #d5d0c7;
+
+    font-size: 32px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.rating-stars label:hover,
+.rating-stars label:hover ~ label,
+.rating-stars input:checked ~ label {
+    color: #c8a165;
+}
+
+
+/*======================================
+        SUBMIT BUTTON
+======================================*/
+
+.submit-review-btn {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 14px 20px;
+
+    background: #234b43;
+
+    border: none;
+    border-radius: 7px;
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.submit-review-btn:hover {
+    background: #183b34;
+}
+
+
+/*======================================
+        BACK HOME
+======================================*/
+
+.back-home {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 22px;
+
+    color: #234b43;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.back-home:hover {
+    color: #c8a165;
+}
+
+
+/*======================================
+        RESPONSIVE
+======================================*/
+
+@media (max-width: 600px) {
+
+    .review-page {
+        padding: 40px 15px;
+    }
+
+    .review-header h1 {
+        font-size: 28px;
+    }
+
+    .review-form-card {
+        padding: 25px 20px;
+    }
+
+}

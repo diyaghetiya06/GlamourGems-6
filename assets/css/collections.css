@@ -1,0 +1,1373 @@
+/*======================================
+        GOOGLE FONT & RESET
+======================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#F8F6F2;
+    color:#333;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+ul{
+    list-style:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/*======================================
+            TOP BAR
+======================================*/
+
+.top-bar{
+
+    background:#1F3A34;
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px 80px;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.top-bar div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+.top-bar i{
+
+    color:#C8A24D;
+
+}
+
+/*======================================
+              NAVBAR
+======================================*/
+
+header{
+    width:100%;
+    background:#fff;
+    position:sticky;
+    top:0;
+    left:0;
+    z-index:999;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+.navbar{
+    max-width:1400px;
+    margin:auto;
+    height:90px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 40px;
+}
+
+/*======================================
+              LOGO
+======================================*/
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+}
+
+.logo img{
+    width:55px;
+    height:55px;
+    object-fit:contain;
+    transition:.4s;
+}
+
+.logo span{
+    font-family:'Cinzel',serif;
+    font-size:34px;
+    font-weight:700;
+    color:#1F3A34;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.logo:hover img{
+    transform:rotate(8deg) scale(1.05);
+}
+
+.logo:hover span{
+    color:#C8A24D;
+}
+
+/*======================================
+              MENU
+======================================*/
+
+.nav-menu{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    list-style:none;
+}
+
+.nav-menu li{
+    list-style:none;
+}
+
+.nav-menu li a{
+    position:relative;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:500;
+    color:#1F3A34;
+    transition:.3s;
+}
+
+.nav-menu li a:hover{
+    color:#C8A24D;
+}
+
+/* Underline */
+
+.nav-menu li a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:2px;
+    background:#C8A24D;
+    transition:.4s;
+}
+
+.nav-menu li a:hover::after{
+    width:100%;
+}
+
+/*======================================
+              ICONS
+======================================*/
+
+.nav-icons{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.nav-icons a{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#F8F6F2;
+    color:#1F3A34;
+    font-size:17px;
+    transition:.35s;
+    text-decoration:none;
+}
+
+.nav-icons a:hover{
+    background:#C8A24D;
+    color:#fff;
+    transform:translateY(-4px);
+}
+
+/*======================================
+          RESPONSIVE
+======================================*/
+
+@media(max-width:992px){
+
+.top-bar{
+
+    display:none;
+
+}
+
+.navbar{
+
+    padding:0 20px;
+
+}
+
+.nav-menu{
+
+    gap:20px;
+
+}
+
+.logo{
+
+    font-size:28px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.navbar{
+
+    height:75px;
+
+}
+
+.nav-menu{
+
+    display:none;
+
+}
+
+.logo{
+
+    font-size:26px;
+
+}
+
+.nav-icons{
+
+    gap:12px;
+
+}
+
+.nav-icons a{
+
+    width:38px;
+
+    height:38px;
+
+}
+
+}
+
+
+/*=========================================
+        COLLECTION HERO
+=========================================*/
+
+.collections-hero{
+
+    width:100%;
+    height:520px;
+
+    background-image:
+    linear-gradient(rgba(35,75,67,.35),
+    rgba(35,75,67,.35)),
+    url("../images/banners/collections-banner.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.collections-hero-overlay{
+
+    width:850px;
+    max-width:90%;
+
+}
+
+.collections-hero-overlay h1{
+
+    font-family:'Cinzel',serif;
+    font-size:65px;
+    color:#fff;
+    margin-bottom:20px;
+    letter-spacing:2px;
+
+}
+
+.collections-hero-overlay p{
+
+    color:#fff;
+    font-size:18px;
+    line-height:32px;
+    margin-bottom:35px;
+
+}
+
+.collections-btn{
+
+    display:inline-block;
+
+    padding:15px 40px;
+
+    background:#D4AF37;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:40px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.collections-btn:hover{
+
+    background:#fff;
+
+    color:#234B43;
+
+    transform:translateY(-3px);
+
+}
+
+/*=========================
+      RESPONSIVE
+=========================*/
+
+@media(max-width:768px){
+
+.collections-hero{
+
+height:420px;
+
+}
+
+.collections-hero-overlay h1{
+
+font-size:42px;
+
+}
+
+.collections-hero-overlay p{
+
+font-size:16px;
+
+line-height:28px;
+
+}
+
+.collections-btn{
+
+padding:13px 30px;
+
+}
+
+}
+
+/*=========================================
+            BREADCRUMB
+==========================================*/
+
+.collection-breadcrumb{
+
+    background:#fff;
+    padding:18px 0;
+    border-bottom:1px solid #eee;
+
+}
+
+.collection-breadcrumb .container{
+
+    width:90%;
+    margin:auto;
+
+}
+
+.collection-breadcrumb a{
+
+    text-decoration:none;
+    color:#234B43;
+    font-weight:600;
+
+}
+
+.collection-breadcrumb span{
+
+    margin:0 8px;
+    color:#777;
+
+}
+
+/*=========================================
+        GOLD COLLECTION
+=========================================*/
+
+.collection-section{
+
+    padding:80px 0;
+
+    background:#fff;
+
+}
+
+.collection-section .container{
+
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+
+}
+
+/*=========================
+      SECTION TITLE
+==========================*/
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:55px;
+
+}
+
+.section-title h2{
+
+    font-family:'Cinzel',serif;
+
+    font-size:48px;
+
+    color:#234B43;
+
+    margin-bottom:15px;
+
+}
+
+.section-title p{
+
+    font-size:17px;
+
+    color:#666;
+
+    line-height:30px;
+
+}
+
+/*=========================
+        GRID
+==========================*/
+
+.collection-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+/*=========================
+      PRODUCT CARD
+==========================*/
+
+.collection-product{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.collection-product:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
+
+}
+
+/*=========================
+      PRODUCT IMAGE
+==========================*/
+
+.collection-product img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.5s;
+
+}
+
+.collection-product:hover img{
+
+    transform:scale(1.08);
+
+}
+
+/*=========================
+      PRODUCT INFO
+==========================*/
+
+.product-info{
+
+    padding:22px;
+
+    text-align:center;
+
+}
+
+.product-info h3{
+
+    font-family:'Cinzel',serif;
+
+    font-size:24px;
+
+    color:#222;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+.collection-product:hover h3{
+
+    color:#D4AF37;
+
+}
+
+.product-info span{
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:#D4AF37;
+
+}
+
+/*=========================
+      RESPONSIVE
+==========================*/
+
+@media(max-width:992px){
+
+.collection-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.section-title h2{
+
+font-size:36px;
+
+}
+
+.collection-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.collection-product img{
+
+height:280px;
+
+}
+
+}
+
+/*=========================================
+        SILVER COLLECTION
+=========================================*/
+
+#silver{
+
+    background:#F8F9FB;
+
+    padding:80px 0;
+
+}
+
+#silver .section-title h2{
+
+    color:#6E7681;
+
+}
+
+#silver .section-title p{
+
+    color:#666;
+
+}
+
+#silver .collection-product{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+#silver .collection-product:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
+
+}
+
+#silver .collection-product img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+#silver .collection-product:hover img{
+
+    transform:scale(1.08);
+
+}
+
+#silver .product-info{
+
+    padding:22px;
+
+    text-align:center;
+
+}
+
+#silver .product-info h3{
+
+    font-family:'Cinzel',serif;
+
+    font-size:24px;
+
+    color:#222;
+
+    margin-bottom:10px;
+
+    transition:.3s;
+
+}
+
+#silver .collection-product:hover h3{
+
+    color:#8A8F98;
+
+}
+
+#silver .product-info span{
+
+    color:#8A8F98;
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+
+/*=========================================
+      ROSE GOLD COLLECTION
+=========================================*/
+
+#rose-gold{
+
+    background:#FFF8F7;
+
+    padding:80px 0;
+
+}
+
+#rose-gold .section-title h2{
+
+    color:#B76E79;
+
+}
+
+#rose-gold .section-title p{
+
+    color:#666;
+
+}
+
+#rose-gold .collection-product:hover h3{
+
+    color:#B76E79;
+
+}
+
+#rose-gold .product-info span{
+
+    color:#B76E79;
+
+}
+/*=========================================
+      DIAMOND COLLECTION
+=========================================*/
+
+#diamond{
+
+    background:#F9FCFF;
+
+    padding:80px 0;
+
+}
+
+#diamond .section-title h2{
+
+    color:#5B8DB8;
+
+}
+
+#diamond .section-title p{
+
+    color:#666;
+
+}
+
+#diamond .collection-product:hover h3{
+
+    color:#5B8DB8;
+
+}
+
+#diamond .product-info span{
+
+    color:#5B8DB8;
+
+}
+/*=================================
+      BRIDAL COLLECTION
+==================================*/
+
+#bridal{
+
+    background:#FFF8F5;
+
+    padding:80px 0;
+
+}
+
+#bridal .section-title h2{
+
+    color:#A97142;
+
+}
+
+#bridal .section-title p{
+
+    color:#666;
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+#bridal .collection-product{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.4s;
+
+}
+
+#bridal .collection-product:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
+
+}
+
+#bridal .collection-product img{
+
+    width:100%;
+
+    height:330px;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+#bridal .collection-product:hover img{
+
+    transform:scale(1.08);
+
+}
+
+#bridal .product-info{
+
+    padding:22px;
+
+    text-align:center;
+
+}
+
+#bridal .product-info h3{
+
+    font-family:'Cinzel',serif;
+
+    font-size:23px;
+
+    color:#222;
+
+    margin-bottom:10px;
+
+    transition:.3s;
+
+}
+
+#bridal .collection-product:hover h3{
+
+    color:#A97142;
+
+}
+
+#bridal .product-info span{
+
+    color:#A97142;
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+/*=================================
+        GROOM COLLECTION
+==================================*/
+
+#groom{
+
+    background:#FCFAF7;
+
+    padding:80px 0;
+
+}
+
+#groom .section-title h2{
+
+    color:#234B43;
+
+}
+
+#groom .section-title p{
+
+    color:#666;
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+#groom .collection-product{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.4s;
+
+}
+
+#groom .collection-product:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
+
+}
+
+#groom .collection-product img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+#groom .collection-product:hover img{
+
+    transform:scale(1.08);
+
+}
+
+#groom .product-info{
+
+    padding:22px;
+
+    text-align:center;
+
+}
+
+#groom .product-info h3{
+
+    font-family:'Cinzel', serif;
+
+    font-size:22px;
+
+    color:#222;
+
+    margin-bottom:10px;
+
+    transition:.3s;
+
+}
+
+#groom .collection-product:hover h3{
+
+    color:#234B43;
+
+}
+
+#groom .product-info span{
+
+    color:#234B43;
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+/*=================================
+        KIDS COLLECTION
+==================================*/
+
+#kids{
+
+    background:#FFFDF8;
+
+    padding:80px 0;
+
+}
+
+#kids .section-title h2{
+
+    color:#E67E22;
+
+}
+
+#kids .section-title p{
+
+    color:#666;
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+#kids .collection-product{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.4s;
+
+}
+
+#kids .collection-product:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 18px 40px rgba(0,0,0,.15);
+
+}
+
+#kids .collection-product img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+#kids .collection-product:hover img{
+
+    transform:scale(1.08);
+
+}
+
+#kids .product-info{
+
+    padding:22px;
+
+    text-align:center;
+
+}
+
+#kids .product-info h3{
+
+    font-family:'Cinzel', serif;
+
+    font-size:22px;
+
+    color:#222;
+
+    margin-bottom:10px;
+
+    transition:.3s;
+
+}
+
+#kids .collection-product:hover h3{
+
+    color:#E67E22;
+
+}
+
+#kids .product-info span{
+
+    color:#E67E22;
+
+    font-size:22px;
+
+    font-weight:600;
+
+}
+
+/*======================================
+            FOOTER
+======================================*/
+
+.footer{
+
+    margin-top:100px;
+    background:#18332D;
+    color:#fff;
+    padding:90px 0 0;
+
+}
+
+.footer .container{
+
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+
+}
+
+.footer-grid{
+
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1.5fr;
+    gap:50px;
+
+}
+
+/*======================================
+            ABOUT
+======================================*/
+
+.footer-about h2{
+
+    font-family:'Cinzel',serif;
+    font-size:36px;
+    color:#C8A165;
+    margin-bottom:20px;
+
+}
+
+.footer-about p{
+
+    color:#d8d8d8;
+    line-height:1.9;
+    margin-bottom:30px;
+
+}
+
+/*======================================
+        SOCIAL ICONS
+======================================*/
+
+.social-icons{
+
+    display:flex;
+    gap:15px;
+
+}
+
+.social-icons a{
+
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    text-decoration:none;
+    transition:.3s;
+
+}
+
+.social-icons a:hover{
+
+    background:#C8A165;
+    transform:translateY(-5px);
+
+}
+
+/*======================================
+            LINKS
+======================================*/
+
+.footer-links h3,
+.footer-contact h3{
+
+    font-family:'Cinzel',serif;
+    color:#fff;
+    font-size:24px;
+    margin-bottom:25px;
+
+}
+
+.footer-links ul{
+
+    list-style:none;
+    padding:0;
+
+}
+
+.footer-links ul li{
+
+    margin-bottom:14px;
+
+}
+
+.footer-links ul li a{
+
+    color:#d8d8d8;
+    text-decoration:none;
+    transition:.3s;
+
+}
+
+.footer-links ul li a:hover{
+
+    color:#C8A165;
+    padding-left:8px;
+
+}
+
+/*======================================
+            CONTACT
+======================================*/
+
+.footer-contact p{
+
+    display:flex;
+    gap:10px;
+    color:#d8d8d8;
+    margin-bottom:18px;
+
+}
+
+.footer-contact i{
+
+    color:#C8A165;
+
+}
+
+/*======================================
+        COPYRIGHT
+======================================*/
+
+.footer-bottom{
+
+    margin-top:70px;
+    text-align:center;
+    padding:25px 0;
+    border-top:1px solid rgba(255,255,255,.12);
+
+}
+
+.footer-bottom p{
+
+    color:#d8d8d8;
+
+}
+
+/*======================================
+        RESPONSIVE
+======================================*/
+
+@media(max-width:992px){
+
+.footer-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.footer-grid{
+
+grid-template-columns:1fr;
+text-align:center;
+
+}
+
+.social-icons{
+
+justify-content:center;
+
+}
+
+.footer-contact p{
+
+justify-content:center;
+
+}
+
+}
+
+/*======================================
+        COLLECTION SEARCH BOX
+======================================*/
+
+.collection-search-box {
+    width: 100%;
+    background: #ffffff;
+    padding: 25px 20px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 10;
+}
+
+
+.collection-search-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.collection-search-inner input {
+    width: 100%;
+    height: 50px;
+    padding: 0 18px;
+    border: 1px solid #d6d6d6;
+    border-radius: 5px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #333;
+}
+
+
+.collection-search-inner input:focus {
+    border-color: #C8A165;
+}
+
+
+.collection-search-inner button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: #234B43;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+
+.collection-search-inner button:hover {
+    background: #C8A165;
+}
+

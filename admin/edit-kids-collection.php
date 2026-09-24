@@ -1,0 +1,551 @@
+<?php
+
+require_once(__DIR__ . '/includes/auth_check.php');
+require_once(__DIR__ . '/../config/database.php');
+
+$page_title = 'Edit Kids Product';
+
+$error = '';
+
+/*======================================
+        GET PRODUCT ID
+======================================*/
+
+$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+
+if ($id <= 0) {
+    header('Location: kids-collection.php');
+    exit;
+}
+
+
+/*======================================
+        FETCH PRODUCT
+======================================*/
+
+$product_query = mysqli_query(
+    $conn,
+    "SELECT *
+     FROM collection_kids_products
+     WHERE id = $id
+     LIMIT 1"
+);
+
+if (
+    !$product_query ||
+    mysqli_num_rows($product_query) === 0
+) {
+    header('Location: kids-collection.php');
+    exit;
+}
+
+$product = mysqli_fetch_assoc($product_query);
+
+
+/*======================================
+        UPDATE PRODUCT
+======================================*/
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $name = trim($_POST['name'] ?? '');
+    $price = (float) ($_POST['price'] ?? 0);
+    $display_order = (int) ($_POST['display_order'] ?? 0);
+    $status = $_POST['status'] ?? 'active';
+
+
+    /*==================================
+            VALIDATION
+    ==================================*/
+
+    if ($name === '') {
+
+        $error = 'Please enter product name.';
+
+    } elseif ($price <= 0) {
+
+        $error = 'Please enter a valid price.';
+
+    } elseif (
+        !in_array(
+            $status,
+            ['active', 'inactive'],
+            true
+        )
+    ) {
+
+        $error = 'Invalid status selected.';
+    }
+
+
+    /*==================================
+            IMAGE
+    ==================================*/
+
+    $old_image_name = $product['image'];
+    $new_image_name = $old_image_name;
+
+    if (
+        $error === '' &&
+        isset($_FILES['image']) &&
+        $_FILES['image']['error'] !== UPLOAD_ERR_NO_FILE
+    ) {
+
+        if (
+            $_FILES['image']['error'] !== UPLOAD_ERR_OK
+        ) {
+
+            $error = 'Image upload failed.';
+
+        } else {
+
+            $allowed_extensions = [
+                'jpg',
+                'jpeg',
+                'png',
+                'webp'
+            ];
+
+            $extension = strtolower(
+                pathinfo(
+                    $_FILES['image']['name'],
+                    PATHINFO_EXTENSION
+                )
+            );
+
+
+            if (
+                !in_array(
+                    $extension,
+                    $allowed_extensions,
+                    true
+                )
+            ) {
+
+                $error =
+                    'Only JPG, JPEG, PNG and WEBP images are allowed.';
+
+            } else {
+
+                $upload_dir =
+                    __DIR__ .
+                    '/../assets/images/kids/';
+
+
+                if (!is_dir($upload_dir)) {
+
+                    mkdir(
+                        $upload_dir,
+                        0777,
+                        true
+                    );
+                }
+
+
+                $new_image_name =
+                    'kids_' .
+                    time() .
+                    '_' .
+                    uniqid() .
+                    '.' .
+                    $extension;
+
+
+                $target_path =
+                    $upload_dir .
+                    $new_image_name;
+
+
+                if (
+                    !move_uploaded_file(
+                        $_FILES['image']['tmp_name'],
+                        $target_path
+                    )
+                ) {
+
+                    $error =
+                        'Image upload failed. Please try again.';
+                }
+            }
+        }
+    }
+
+
+    /*==================================
+            UPDATE DATABASE
+    ==================================*/
+
+    if ($error === '') {
+
+        $name_safe = mysqli_real_escape_string(
+            $conn,
+            $name
+        );
+
+        $image_safe = mysqli_real_escape_string(
+            $conn,
+            $new_image_name
+        );
+
+        $status_safe = mysqli_real_escape_string(
+            $conn,
+            $status
+        );
+
+
+        $update_query = mysqli_query(
+            $conn,
+            "UPDATE collection_kids_products
+             SET
+                name = '$name_safe',
+                price = $price,
+                image = '$image_safe',
+                display_order = $display_order,
+                status = '$status_safe'
+             WHERE id = $id"
+        );
+
+
+        if ($update_query) {
+
+            /* Delete old image after successful update */
+
+            if (
+                $new_image_name !== $old_image_name &&
+                !empty($old_image_name)
+            ) {
+
+                $old_image_path =
+                    __DIR__ .
+                    '/../assets/images/kids/' .
+                    $old_image_name;
+
+
+                if (
+                    file_exists($old_image_path)
+                ) {
+
+                    unlink($old_image_path);
+                }
+            }
+
+
+            header(
+                'Location: kids-collection.php?success=updated'
+            );
+
+            exit;
+
+        } else {
+
+            /* Remove newly uploaded image if DB update failed */
+
+            if (
+                $new_image_name !== $old_image_name &&
+                isset($target_path) &&
+                file_exists($target_path)
+            ) {
+
+                unlink($target_path);
+            }
+
+
+            $error =
+                'Product could not be updated. Please try again.';
+        }
+    }
+
+
+    /* Keep entered values */
+
+    $product['name'] = $name;
+    $product['price'] = $price;
+    $product['display_order'] = $display_order;
+    $product['status'] = $status;
+    $product['image'] = $new_image_name;
+}
+
+
+include(__DIR__ . '/includes/header.php');
+
+?>
+
+<div class="admin-page gold-collection-page">
+
+
+    <!--======================================
+                PAGE HEADER
+    ======================================-->
+
+    <div class="gg-page-header">
+
+        <div>
+
+            <h1 class="gg-page-title">
+                Edit Kids Product
+            </h1>
+
+            <p class="gg-page-subtitle">
+                Update Kids Collection product details.
+            </p>
+
+        </div>
+
+
+        <a
+            href="kids-collection.php"
+            class="btn-gg-secondary"
+        >
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back
+
+        </a>
+
+    </div>
+
+
+    <!--======================================
+                ERROR MESSAGE
+    ======================================-->
+
+    <?php if ($error !== ''): ?>
+
+        <div
+            style="
+                background:#3a1f1f;
+                color:#ffb3b3;
+                padding:14px 18px;
+                border-radius:8px;
+                margin-bottom:20px;
+            "
+        >
+
+            <?php echo htmlspecialchars($error); ?>
+
+        </div>
+
+    <?php endif; ?>
+
+
+    <!--======================================
+                EDIT FORM
+    ======================================-->
+
+    <div class="gg-card">
+
+        <div class="gg-card-header">
+
+            <h2 class="gg-card-title">
+                Kids Product Details
+            </h2>
+
+        </div>
+
+
+        <div class="gg-card-body">
+
+            <form
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+
+                <!-- Product Name -->
+
+                <div style="margin-bottom:20px;">
+
+                    <label>
+                        Product Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        class="form-control"
+                        value="<?php echo htmlspecialchars($product['name']); ?>"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Price -->
+
+                <div style="margin-bottom:20px;">
+
+                    <label>
+                        Price
+                    </label>
+
+                    <input
+                        type="number"
+                        name="price"
+                        class="form-control"
+                        min="1"
+                        step="0.01"
+                        value="<?php echo htmlspecialchars($product['price']); ?>"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Display Order -->
+
+                <div style="margin-bottom:20px;">
+
+                    <label>
+                        Display Order
+                    </label>
+
+                    <input
+                        type="number"
+                        name="display_order"
+                        class="form-control"
+                        min="0"
+                        value="<?php echo htmlspecialchars($product['display_order']); ?>"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Status -->
+
+                <div style="margin-bottom:20px;">
+
+                    <label>
+                        Status
+                    </label>
+
+                    <select
+                        name="status"
+                        class="form-select"
+                    >
+
+                        <option
+                            value="active"
+                            <?php
+                            echo $product['status'] === 'active'
+                                ? 'selected'
+                                : '';
+                            ?>
+                        >
+                            Active
+                        </option>
+
+                        <option
+                            value="inactive"
+                            <?php
+                            echo $product['status'] === 'inactive'
+                                ? 'selected'
+                                : '';
+                            ?>
+                        >
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Current Image -->
+
+                <div style="margin-bottom:20px;">
+
+                    <label>
+                        Current Product Image
+                    </label>
+
+                    <div style="margin-top:10px;">
+
+                        <img
+                            src="../assets/images/kids/<?php echo htmlspecialchars($product['image']); ?>"
+                            alt="<?php echo htmlspecialchars($product['name']); ?>"
+                            style="
+                                width:140px;
+                                height:140px;
+                                object-fit:cover;
+                                border-radius:8px;
+                                border:1px solid #ddd;
+                            "
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- New Image -->
+
+                <div style="margin-bottom:25px;">
+
+                    <label>
+                        Change Product Image
+                    </label>
+
+                    <input
+                        type="file"
+                        name="image"
+                        class="form-control"
+                        accept=".jpg,.jpeg,.png,.webp"
+                    >
+
+                    <small>
+                        Leave empty if you want to keep the current image.
+                    </small>
+
+                </div>
+
+
+                <!-- Buttons -->
+
+                <div
+                    style="
+                        display:flex;
+                        gap:10px;
+                        flex-wrap:wrap;
+                    "
+                >
+
+                    <button
+                        type="submit"
+                        class="btn-gg-gold"
+                    >
+
+                        <i class="fa-solid fa-save"></i>
+
+                        Update Product
+
+                    </button>
+
+
+                    <a
+                        href="kids-collection.php"
+                        class="btn-gg-secondary"
+                    >
+
+                        Cancel
+
+                    </a>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<?php
+
+include(__DIR__ . '/includes/footer.php');
+
+?>

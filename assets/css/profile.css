@@ -1,0 +1,384 @@
+/*======================================
+        PROFILE PAGE
+======================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f9f8f4;
+    color: #333;
+}
+
+
+/*======================================
+            TOP BAR
+======================================*/
+
+.top-bar {
+    background: #234B43;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 6%;
+    font-size: 13px;
+}
+
+.top-bar div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-bar i {
+    color: #C8A165;
+}
+
+
+/*======================================
+            NAVBAR
+======================================*/
+
+header {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.navbar {
+    min-height: 82px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #234B43;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.logo span {
+    font-family: "Cinzel", serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: #C8A165;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.nav-icons a {
+    position: relative;
+    color: #234B43;
+    font-size: 18px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.nav-icons a:hover,
+.nav-icons a.active {
+    color: #C8A165;
+}
+
+
+/*======================================
+        PROFILE SECTION
+======================================*/
+
+.profile-section {
+    min-height: calc(100vh - 140px);
+    padding: 70px 20px;
+}
+
+.profile-container {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+}
+
+
+/*======================================
+        PROFILE HEADING
+======================================*/
+
+.profile-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-heading span {
+    color: #C8A165;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.profile-heading h1 {
+    font-family: "Cinzel", serif;
+    color: #234B43;
+    font-size: 34px;
+    margin: 10px 0;
+}
+
+.profile-heading p {
+    color: #777;
+    font-size: 14px;
+}
+
+
+/*======================================
+            PROFILE CARD
+======================================*/
+
+.profile-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #234B43;
+    color: #C8A165;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h2 {
+    font-family: "Cinzel", serif;
+    color: #234B43;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.profile-detail {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.profile-detail > i {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #f5f1e9;
+    color: #C8A165;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-detail span {
+    display: block;
+    color: #999;
+    font-size: 12px;
+}
+
+.profile-detail p {
+    color: #444;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+
+/*======================================
+        ACCOUNT ACTIONS
+======================================*/
+
+.account-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.account-action {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    text-decoration: none;
+    color: #333;
+    transition: 0.3s;
+}
+
+.account-action:hover {
+    border-color: #C8A165;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.action-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #f5f1e9;
+    color: #C8A165;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.account-action h3 {
+    color: #234B43;
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+.account-action p {
+    color: #888;
+    font-size: 12px;
+}
+
+.account-action .arrow {
+    margin-left: auto;
+    color: #aaa;
+    font-size: 13px;
+}
+
+.logout-action .action-icon {
+    color: #b35c5c;
+}
+
+.logout-action h3 {
+    color: #8d4040;
+}
+
+
+/*======================================
+            FOOTER
+======================================*/
+
+.profile-footer {
+    background: #234B43;
+    color: #fff;
+    text-align: center;
+    padding: 18px;
+    font-size: 12px;
+}
+
+
+/*======================================
+        RESPONSIVE DESIGN
+======================================*/
+
+@media (max-width: 768px) {
+
+    .top-bar {
+        display: none;
+    }
+
+    .navbar {
+        min-height: 70px;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .logo span {
+        font-size: 17px;
+    }
+
+    .profile-section {
+        padding: 45px 15px;
+    }
+
+    .profile-heading h1 {
+        font-size: 27px;
+    }
+
+    .profile-card {
+        padding: 25px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-detail {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .account-action {
+        padding: 16px;
+    }
+
+}
+
+.back-home-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 11px 18px;
+    border: 1px solid #c8a165;
+    border-radius: 8px;
+    color: #234b43;
+    background: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .25s ease;
+}
+
+.back-home-btn:hover {
+    color: #fff;
+    background: #234b43;
+    border-color: #234b43;
+    transform: translateY(-2px);
+}

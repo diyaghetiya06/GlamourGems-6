@@ -1,0 +1,2377 @@
+/* ==========================================================================
+   GLAMOUR GEMS - ADMIN PANEL
+   Premium Dark Green + Gold Luxury Theme
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/*======================================
+        ROOT VARIABLES
+======================================*/
+
+:root {
+
+    --gg-bg-body: #0b0f0e;
+    --gg-bg-surface: #111715;
+    --gg-bg-card: #151c19;
+    --gg-bg-card-solid: #151c19;
+    --gg-bg-input: #0d1210;
+
+    --gg-green: #234B43;
+    --gg-green-light: #2d6257;
+    --gg-green-dark: #183a34;
+
+    --gg-gold: #C8A165;
+    --gg-gold-light: #e0bd7b;
+    --gg-gold-dark: #9d783f;
+
+    --gg-gold-gradient:
+        linear-gradient(
+            135deg,
+            #e0bd7b 0%,
+            #c8a165 50%,
+            #9d783f 100%
+        );
+
+    --gg-border: rgba(200, 161, 101, 0.30);
+    --gg-border-light: rgba(255, 255, 255, 0.10);
+
+    --gg-text-primary: #f5f2eb;
+    --gg-text-secondary: #c1c8c5;
+    --gg-text-muted: #8f9b96;
+
+    --gg-success: #39c77a;
+    --gg-warning: #f1c75b;
+    --gg-info: #4db8e8;
+    --gg-danger: #ef6262;
+
+    --gg-font-heading: 'Cinzel', serif;
+    --gg-font-body: 'Poppins', sans-serif;
+
+    --sidebar-width: 270px;
+    --header-height: 75px;
+
+    --gg-radius: 16px;
+
+    --gg-shadow-sm:
+        0 4px 15px rgba(0, 0, 0, 0.30);
+
+    --gg-shadow-lg:
+        0 15px 35px rgba(0, 0, 0, 0.45);
+
+    --gg-gold-shadow:
+        0 6px 20px rgba(200, 161, 101, 0.25);
+}
+
+
+/*======================================
+        GLOBAL RESET
+======================================*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(35, 75, 67, 0.20),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(200, 161, 101, 0.08),
+            transparent 35%
+        ),
+        var(--gg-bg-body);
+
+    color: var(--gg-text-primary);
+
+    font-family: var(--gg-font-body);
+
+    font-size: 0.92rem;
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+}
+
+
+/*======================================
+        SCROLLBAR
+======================================*/
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #090c0b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gg-gold-dark);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gg-gold);
+}
+
+
+/*======================================
+        LINKS
+======================================*/
+
+a {
+
+    color: var(--gg-gold-light);
+
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+a:hover {
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px rgba(200, 161, 101, 0.25);
+}
+
+
+/*======================================
+        HEADINGS
+======================================*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.brand-font {
+
+    font-family: var(--gg-font-heading);
+
+    color: var(--gg-text-primary);
+
+    letter-spacing: 0.6px;
+}
+
+.text-gold {
+    color: var(--gg-gold) !important;
+}
+
+.text-gold-light {
+    color: var(--gg-gold-light) !important;
+}
+
+.bg-gold {
+
+    background: var(--gg-gold-gradient) !important;
+
+    color: #111 !important;
+}
+
+
+/*======================================
+        MAIN WRAPPER
+======================================*/
+
+#wrapper {
+
+    display: flex;
+
+    width: 100%;
+
+    min-height: 100vh;
+}
+
+
+/*======================================
+        SIDEBAR
+======================================*/
+
+#sidebar {
+
+    width: var(--sidebar-width);
+
+    background:
+        linear-gradient(
+            180deg,
+            #101513 0%,
+            #0c110f 100%
+        );
+
+    border-right:
+        1px solid var(--gg-border);
+
+    position: fixed;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    z-index: 1040;
+
+    display: flex;
+
+    flex-direction: column;
+
+    box-shadow:
+        5px 0 25px rgba(0, 0, 0, 0.35);
+
+    transition: all 0.35s ease;
+}
+
+
+/*======================================
+        SIDEBAR HEADER
+======================================*/
+
+#sidebar .sidebar-header {
+
+    height: var(--header-height);
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 1.5rem;
+
+    border-bottom:
+        1px solid var(--gg-border);
+
+    background: var(--gg-green-dark);
+}
+
+#sidebar .brand-title {
+
+    font-size: 1.2rem;
+
+    font-weight: 800;
+
+    color: var(--gg-gold-light);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    letter-spacing: 1px;
+}
+
+#sidebar .brand-title i {
+
+    font-size: 1.5rem;
+
+    color: var(--gg-gold);
+
+    filter:
+        drop-shadow(
+            0 2px 8px rgba(200, 161, 101, 0.35)
+        );
+}
+
+
+/*======================================
+        SIDEBAR MENU
+======================================*/
+
+#sidebar .sidebar-menu {
+
+    padding: 1.5rem 0.85rem;
+
+    flex-grow: 1;
+
+    overflow-y: auto;
+}
+
+.menu-label {
+
+    font-size: 0.7rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
+    color: var(--gg-gold);
+
+    padding:
+        1rem
+        1rem
+        0.4rem
+        1rem;
+
+    font-weight: 700;
+}
+
+
+/*======================================
+        NAV ITEMS
+======================================*/
+
+.nav-item {
+    margin-bottom: 5px;
+}
+
+.nav-link-custom {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding:
+        0.8rem
+        1.1rem;
+
+    color: var(--gg-text-secondary);
+
+    border-radius: 12px;
+
+    font-weight: 500;
+
+    font-size: 0.9rem;
+
+    position: relative;
+
+    transition: all 0.3s ease;
+
+    border: 1px solid transparent;
+}
+
+.nav-link-custom i {
+
+    font-size: 1.15rem;
+
+    width: 22px;
+
+    text-align: center;
+
+    color: var(--gg-text-muted);
+
+    transition: all 0.3s ease;
+}
+
+.nav-link-custom:hover {
+
+    color: #ffffff;
+
+    background:
+        rgba(200, 161, 101, 0.10);
+
+    border-color:
+        rgba(200, 161, 101, 0.25);
+
+    transform: translateX(4px);
+}
+
+.nav-link-custom:hover i {
+
+    color: var(--gg-gold);
+
+    transform: scale(1.10);
+}
+
+.nav-link-custom.active {
+
+    color: #15120c;
+
+    background:
+        var(--gg-gold-gradient);
+
+    font-weight: 700;
+
+    box-shadow: var(--gg-gold-shadow);
+}
+
+.nav-link-custom.active i {
+    color: #15120c;
+}
+
+
+/*======================================
+        SIDEBAR FOOTER
+======================================*/
+
+.sidebar-footer {
+
+    padding:
+        1.1rem
+        1.25rem;
+
+    border-top:
+        1px solid var(--gg-border);
+
+    background:
+        #0b100e;
+}
+
+
+/*======================================
+        CONTENT WRAPPER
+======================================*/
+
+#content-wrapper {
+
+    margin-left: var(--sidebar-width);
+
+    width:
+        calc(100% - var(--sidebar-width));
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/*======================================
+        TOP HEADER
+======================================*/
+
+.top-header {
+
+    height: var(--header-height);
+
+    background:
+        #101614;
+
+    border-bottom:
+        1px solid var(--gg-border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 2rem;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1030;
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.sidebar-toggle-btn {
+
+    background:
+        rgba(200, 161, 101, 0.08);
+
+    border:
+        1px solid var(--gg-border);
+
+    color: var(--gg-gold);
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.sidebar-toggle-btn:hover {
+
+    background:
+        var(--gg-gold-gradient);
+
+    color: #111;
+
+    box-shadow:
+        var(--gg-gold-shadow);
+}
+
+
+/*======================================
+        ADMIN PROFILE
+======================================*/
+
+.admin-profile-dropdown .btn-profile {
+
+    background:
+        var(--gg-bg-card);
+
+    border:
+        1px solid var(--gg-border);
+
+    color:
+        var(--gg-text-primary);
+
+    padding:
+        7px 16px;
+
+    border-radius:
+        35px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.admin-profile-dropdown .btn-profile:hover {
+
+    border-color:
+        var(--gg-gold);
+
+    color:
+        #ffffff;
+}
+
+.admin-avatar {
+
+    width: 36px;
+
+    height: 36px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border:
+        2px solid var(--gg-gold);
+}
+
+
+/*======================================
+        MAIN CONTENT
+======================================*/
+
+.main-content {
+
+    padding:
+        2.25rem 2rem;
+
+    flex-grow: 1;
+}
+
+
+/*======================================
+        PAGE HEADER
+======================================*/
+
+.page-header-title {
+
+    font-size: 1.8rem;
+
+    font-weight: 700;
+
+    color: var(--gg-gold-light);
+
+    margin-bottom: 0.25rem;
+}
+
+.page-header-sub {
+
+    color: var(--gg-text-secondary);
+
+    font-size: 0.9rem;
+}
+
+
+/*======================================
+        KPI CARDS
+======================================*/
+
+.metric-card {
+
+    background:
+        var(--gg-bg-card);
+
+    border:
+        1px solid var(--gg-border);
+
+    border-radius:
+        var(--gg-radius);
+
+    padding:
+        1.6rem;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow:
+        var(--gg-shadow-sm);
+
+    transition:
+        all 0.3s ease;
+}
+
+.metric-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        var(--gg-gold);
+
+    box-shadow:
+        var(--gg-shadow-lg);
+}
+
+.metric-card::before {
+
+    content: '';
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 3px;
+
+    background:
+        var(--gg-gold-gradient);
+}
+
+.metric-icon {
+
+    width: 56px;
+
+    height: 56px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(200, 161, 101, 0.13);
+
+    color:
+        var(--gg-gold-light);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 1.5rem;
+
+    border:
+        1px solid var(--gg-border);
+}
+
+.metric-value {
+
+    font-size: 1.9rem;
+
+    font-weight: 800;
+
+    color:
+        #ffffff !important;
+
+    margin-top: 0.6rem;
+
+    font-family:
+        var(--gg-font-heading);
+}
+
+.metric-label {
+
+    color:
+        var(--gg-text-secondary) !important;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+}
+
+
+/*======================================
+        GENERAL CARDS
+======================================*/
+
+.gg-card {
+
+    background:
+        var(--gg-bg-card);
+
+    border:
+        1px solid var(--gg-border);
+
+    border-radius:
+        var(--gg-radius);
+
+    box-shadow:
+        var(--gg-shadow-sm);
+
+    margin-bottom:
+        1.75rem;
+
+    overflow:
+        hidden;
+}
+
+.gg-card:hover {
+
+    border-color:
+        rgba(200, 161, 101, 0.45);
+}
+
+.gg-card-header {
+
+    padding:
+        1.35rem 1.75rem;
+
+    border-bottom:
+        1px solid var(--gg-border-light);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background:
+        #121917;
+}
+
+.gg-card-title {
+
+    font-size: 1.15rem;
+
+    font-weight: 700;
+
+    margin: 0;
+
+    color:
+        var(--gg-gold-light);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.gg-card-body {
+
+    padding:
+        1.75rem;
+}
+
+
+/*======================================
+        FORMS
+======================================*/
+
+.form-label {
+
+    color:
+        var(--gg-text-secondary);
+
+    font-weight:
+        600;
+
+    font-size:
+        0.85rem;
+
+    margin-bottom:
+        0.45rem;
+
+    text-transform:
+        uppercase;
+}
+
+.form-control,
+.form-select {
+
+    background-color:
+        var(--gg-bg-input) !important;
+
+    border:
+        1px solid var(--gg-border-light) !important;
+
+    color:
+        #ffffff !important;
+
+    border-radius:
+        10px !important;
+
+    padding:
+        0.7rem 1.1rem !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+
+    background-color:
+        #0b100e !important;
+
+    border-color:
+        var(--gg-gold) !important;
+
+    color:
+        #ffffff !important;
+
+    box-shadow:
+        0 0 15px
+        rgba(200, 161, 101, 0.20) !important;
+}
+
+.form-control::placeholder {
+
+    color:
+        var(--gg-text-muted) !important;
+}
+
+.form-select option {
+
+    background:
+        var(--gg-bg-card-solid);
+
+    color:
+        #ffffff;
+}
+
+
+/*======================================
+        BUTTONS
+======================================*/
+
+.btn-gg-gold {
+
+    background:
+        var(--gg-gold-gradient);
+
+    color:
+        #15120c;
+
+    border:
+        none;
+
+    font-weight:
+        700;
+
+    padding:
+        0.7rem 1.6rem;
+
+    border-radius:
+        10px;
+
+    box-shadow:
+        var(--gg-gold-shadow);
+}
+
+.btn-gg-gold:hover {
+
+    color:
+        #111;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(200, 161, 101, 0.35);
+}
+
+.btn-gg-outline {
+
+    background:
+        transparent;
+
+    border:
+        1px solid var(--gg-gold);
+
+    color:
+        var(--gg-gold-light);
+
+    font-weight:
+        600;
+
+    padding:
+        0.65rem 1.3rem;
+
+    border-radius:
+        10px;
+}
+
+.btn-gg-outline:hover {
+
+    background:
+        rgba(200, 161, 101, 0.12);
+
+    color:
+        #ffffff;
+
+    border-color:
+        var(--gg-gold-light);
+}
+
+
+/*======================================
+        TABLE
+======================================*/
+
+.table-gg {
+
+    width: 100%;
+
+    margin-bottom: 0;
+
+    vertical-align: middle;
+
+    color:
+        #ffffff !important;
+
+    background:
+        transparent !important;
+}
+
+
+/* TABLE HEADER */
+
+.table-gg th {
+
+    background:
+        #0b100e !important;
+
+    color:
+        var(--gg-gold-light) !important;
+
+    font-weight:
+        700;
+
+    font-size:
+        0.80rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
+
+    padding:
+        1.1rem 1.35rem;
+
+    border-bottom:
+        1px solid var(--gg-border) !important;
+
+    white-space:
+        nowrap;
+}
+
+
+/* TABLE DATA */
+
+.table-gg td {
+
+    padding:
+        1.1rem 1.35rem;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08) !important;
+
+    background:
+        transparent !important;
+
+    color:
+        #f1f3f2 !important;
+
+    font-size:
+        0.90rem;
+
+    font-weight:
+        400;
+}
+
+
+/* IMPORTANT:
+   Force nested table content to remain visible */
+
+.table-gg td *,
+.table-gg tbody *,
+.table-gg tr * {
+
+    color:
+        inherit !important;
+}
+
+
+/* Customer names */
+
+.table-gg td strong,
+.table-gg td .fw-bold {
+
+    color:
+        #ffffff !important;
+
+    font-weight:
+        600;
+}
+
+
+/* Email / secondary text */
+
+.table-gg td small {
+
+    color:
+        #aeb8b4 !important;
+}
+
+
+/* Amount */
+
+.table-gg td .amount,
+.table-gg td strong.amount {
+
+    color:
+        #ffffff !important;
+
+    font-weight:
+        700;
+}
+
+
+/* Date */
+
+.table-gg td .date {
+
+    color:
+        #c4ccc8 !important;
+}
+
+
+/* Table rows */
+
+.table-gg tbody tr {
+
+    background:
+        transparent !important;
+
+    transition:
+        background 0.25s ease;
+}
+
+.table-gg tbody tr:hover {
+
+    background:
+        rgba(35, 75, 67, 0.30) !important;
+}
+
+/*======================================
+        EXECUTIVE DASHBOARD
+======================================*/
+
+.dashboard-page {
+    max-width: 1680px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.dashboard-hero {
+    padding: 1.45rem 1.6rem;
+    border: 1px solid var(--gg-border);
+    border-radius: var(--gg-radius);
+    background:
+        linear-gradient(120deg, rgba(35, 75, 67, .72), rgba(21, 28, 25, .94) 62%),
+        radial-gradient(circle at 90% 10%, rgba(200, 161, 101, .20), transparent 30%);
+    box-shadow: var(--gg-shadow-sm);
+}
+
+.dashboard-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: .45rem;
+    color: var(--gg-gold-light);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.dashboard-hero .page-header-title {
+    color: #fff;
+    font-size: clamp(1.55rem, 2.5vw, 2.1rem);
+}
+
+.dashboard-kpis .metric-card {
+    height: 100%;
+    min-height: 166px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dashboard-kpis .metric-card .mt-3 {
+    margin-top: 1rem !important;
+    padding-top: .8rem;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    font-size: .78rem;
+}
+
+.dashboard-page .gg-card {
+    border-color: rgba(200, 161, 101, .22);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .22);
+}
+
+.dashboard-page .gg-card-header {
+    min-height: 62px;
+    padding: 1rem 1.35rem;
+}
+
+.dashboard-page .gg-card-body {
+    padding: 1.35rem;
+}
+
+.dashboard-page #salesChart {
+    width: 100% !important;
+    height: 310px !important;
+}
+
+.dashboard-page .table-responsive {
+    scrollbar-color: var(--gg-gold-dark) #0b100e;
+}
+
+.dashboard-page .table-gg tbody tr:last-child td {
+    border-bottom: 0 !important;
+}
+
+@media (max-width: 767.98px) {
+    .dashboard-hero {
+        padding: 1.2rem;
+    }
+
+    .dashboard-page #salesChart {
+        height: 245px !important;
+    }
+}
+
+
+/*======================================
+        TABLE IMAGE
+======================================*/
+
+.table-img-thumb {
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 10px;
+
+    object-fit: cover;
+
+    border:
+        1px solid var(--gg-border);
+}
+
+
+/*======================================
+        STATUS BADGES
+======================================*/
+
+.badge-gg {
+
+    padding:
+        7px 14px;
+
+    border-radius:
+        25px;
+
+    font-size:
+        0.75rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.5px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap: 6px;
+}
+
+.badge-gg-success {
+
+    background:
+        rgba(57, 199, 122, 0.14);
+
+    color:
+        #39d985 !important;
+
+    border:
+        1px solid rgba(57, 199, 122, 0.35);
+}
+
+.badge-gg-warning {
+
+    background:
+        rgba(241, 199, 91, 0.14);
+
+    color:
+        #f1c75b !important;
+
+    border:
+        1px solid rgba(241, 199, 91, 0.35);
+}
+
+.badge-gg-info {
+
+    background:
+        rgba(77, 184, 232, 0.14);
+
+    color:
+        #4db8e8 !important;
+
+    border:
+        1px solid rgba(77, 184, 232, 0.35);
+}
+
+.badge-gg-danger {
+
+    background:
+        rgba(239, 98, 98, 0.14);
+
+    color:
+        #ef6262 !important;
+
+    border:
+        1px solid rgba(239, 98, 98, 0.35);
+}
+
+.badge-gg-secondary {
+
+    background:
+        rgba(180, 190, 186, 0.12);
+
+    color:
+        #c8d0cc !important;
+
+    border:
+        1px solid rgba(180, 190, 186, 0.25);
+}
+
+
+/*======================================
+        ACTION BUTTON
+======================================*/
+
+.btn-action {
+
+    width: 36px;
+
+    height: 36px;
+
+    border-radius: 8px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color:
+        #b9c2be !important;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    background:
+        #111815;
+
+    transition:
+        all 0.25s ease;
+}
+
+.btn-action:hover {
+
+    color:
+        #111 !important;
+
+    background:
+        var(--gg-gold-gradient);
+
+    border-color:
+        var(--gg-gold);
+
+    transform:
+        translateY(-2px);
+}
+
+.btn-action-danger:hover {
+
+    color:
+        #ffffff !important;
+
+    background:
+        #c0392b;
+
+    border-color:
+        #e74c3c;
+}
+
+
+/*======================================
+        MODAL
+======================================*/
+
+.modal-content-gg {
+
+    background:
+        var(--gg-bg-card-solid);
+
+    border:
+        1px solid var(--gg-border);
+
+    color:
+        var(--gg-text-primary);
+
+    border-radius:
+        var(--gg-radius);
+
+    box-shadow:
+        var(--gg-shadow-lg);
+}
+
+.modal-header-gg {
+
+    border-bottom:
+        1px solid var(--gg-border-light);
+
+    padding:
+        1.35rem 1.75rem;
+
+    background:
+        #101614;
+}
+
+.modal-footer-gg {
+
+    border-top:
+        1px solid var(--gg-border-light);
+
+    padding:
+        1.35rem 1.75rem;
+
+    background:
+        #101614;
+}
+
+.btn-close-white {
+
+    filter:
+        invert(1)
+        grayscale(100%)
+        brightness(200%);
+}
+
+
+/*======================================
+        FLASH ALERT
+======================================*/
+
+.gg-alert {
+
+    border-radius:
+        12px;
+
+    border:
+        1px solid var(--gg-border);
+
+    padding:
+        1rem 1.4rem;
+
+    box-shadow:
+        var(--gg-shadow-sm);
+}
+
+
+/*======================================
+        STOCK WARNING
+======================================*/
+
+.stock-warning,
+.stock-warning * {
+
+    color:
+        #f1f3f2;
+}
+
+.stock-warning .text-muted {
+
+    color:
+        #aeb8b4 !important;
+}
+
+
+/*======================================
+        RESPONSIVE
+======================================*/
+
+@media (max-width: 991.98px) {
+
+    #sidebar {
+
+        margin-left:
+            calc(-1 * var(--sidebar-width));
+    }
+
+    #sidebar.active {
+
+        margin-left: 0;
+    }
+
+    #content-wrapper {
+
+        margin-left: 0;
+
+        width: 100%;
+    }
+
+    .main-content {
+
+        padding:
+            1.5rem 1rem;
+    }
+}
+
+
+/*======================================
+        MOBILE TABLE
+======================================*/
+
+@media (max-width: 767.98px) {
+
+    .table-responsive {
+
+        overflow-x: auto;
+    }
+
+    .table-gg {
+
+        min-width: 850px;
+    }
+
+    .top-header {
+
+        padding:
+            0 1rem;
+    }
+}
+
+/*======================================
+        PAYMENT MANAGEMENT
+======================================*/
+
+.admin-page {
+    padding: 30px;
+}
+
+
+/*======================================
+        PAYMENT STATS GRID
+======================================*/
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin: 25px 0;
+}
+
+.stat-card {
+    background: #111714;
+    border: 1px solid #3c443d;
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 100px;
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: #c8a165;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stat-label {
+    color: #d9d9d9;
+    font-size: 13px;
+}
+
+.stat-content h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+/*======================================
+        PAYMENT FILTER
+======================================*/
+
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background: #111714;
+    border-bottom: 1px solid #343b36;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 220px;
+}
+
+.filter-form .form-control {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid #3c443d;
+    border-radius: 8px;
+    background: #0d1210;
+    color: #ffffff;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.filter-form .form-control:focus {
+    border-color: #c8a165;
+}
+
+.filter-form select {
+    cursor: pointer;
+}
+
+
+/*======================================
+        PAYMENT BUTTONS
+======================================*/
+
+.btn-gg-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    height: 44px;
+    padding: 0 18px;
+    border: 1px solid #4a514c;
+    border-radius: 8px;
+    background: transparent;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-gg-secondary:hover {
+    background: #222a25;
+    color: #c8a165;
+}
+
+.btn-gg-gold {
+    height: 44px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 8px;
+    background: #c8a165;
+    color: #111;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-gg-gold:hover {
+    background: #d8b477;
+}
+
+
+/*======================================
+        PAYMENT TABLE
+======================================*/
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-gg {
+    width: 100%;
+    min-width: 950px;
+    border-collapse: collapse;
+}
+
+.table-gg th {
+    padding: 15px 16px;
+    background: #0d1210;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 1px solid #4b4b3b;
+    white-space: nowrap;
+}
+
+.table-gg td {
+    padding: 17px 16px;
+    color: #eeeeee;
+    font-size: 13px;
+    border-bottom: 1px solid #2c332e;
+    vertical-align: middle;
+}
+
+.table-gg tbody tr:hover {
+    background: #171e1a;
+}
+
+.table-gg strong {
+    color: #ffffff;
+}
+
+.table-gg small {
+    color: #9d9d9d;
+    font-size: 11px;
+}
+
+
+/*======================================
+        PAYMENT STATUS BADGES
+======================================*/
+
+.badge-gg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.badge-success {
+    background: rgba(46, 160, 67, 0.15);
+    color: #5fd46a;
+}
+
+.badge-warning {
+    background: rgba(218, 165, 32, 0.15);
+    color: #e0b85c;
+}
+
+.badge-danger {
+    background: rgba(220, 53, 69, 0.15);
+    color: #ff6b78;
+}
+
+.badge-info {
+    background: rgba(50, 140, 200, 0.15);
+    color: #65b8e8;
+}
+
+
+/*======================================
+        VIEW BUTTON
+======================================*/
+
+.btn-gg-small {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    background: #c8a165;
+    color: #111;
+    text-decoration: none;
+}
+
+.btn-gg-small:hover {
+    background: #d8b477;
+    color: #111;
+}
+
+
+/*======================================
+        EMPTY STATE
+======================================*/
+
+.empty-state {
+    padding: 45px 20px;
+    text-align: center;
+}
+
+.empty-state i {
+    font-size: 40px;
+    color: #c8a165;
+    margin-bottom: 15px;
+}
+
+.empty-state h3 {
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    color: #999;
+}
+
+
+/*======================================
+        RESPONSIVE
+======================================*/
+
+@media (max-width: 1100px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .admin-page {
+        padding: 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .filter-form .btn-gg-gold,
+    .filter-form .btn-gg-secondary {
+        width: 100%;
+    }
+
+}
+
+/*======================================
+        GOLD COLLECTION PAGE
+======================================*/
+
+.gold-collection-page {
+    padding: 35px 30px 50px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+
+/*======================================
+        PAGE HEADER
+======================================*/
+
+.gold-collection-page .gg-page-header {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 30px;
+    padding: 28px 30px;
+    border-radius: 18px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(200, 161, 101, 0.13),
+            rgba(200, 161, 101, 0.025)
+        );
+    border: 1px solid rgba(200, 161, 101, 0.22);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+.gold-collection-page .gg-page-title {
+    margin: 0 0 8px !important;
+    color: #ffffff !important;
+    font-family: "Cinzel", serif;
+    font-size: 30px !important;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.gold-collection-page .gg-page-subtitle {
+    margin: 0 !important;
+    color: #aaa !important;
+    font-size: 13px !important;
+    line-height: 1.6;
+}
+
+
+/*======================================
+        ADD BUTTON
+======================================*/
+
+.gold-collection-page .gg-page-header .btn-gg-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-width: 175px;
+    padding: 12px 20px;
+    border-radius: 9px;
+    background: #c8a165;
+    color: #111 !important;
+    border: 1px solid #c8a165;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.gold-collection-page .gg-page-header .btn-gg-gold:hover {
+    background: #dfbd7e;
+    border-color: #dfbd7e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(200, 161, 101, 0.22);
+}
+
+
+/*======================================
+        STATISTICS GRID
+======================================*/
+
+.gold-collection-page .gg-stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.gold-collection-page .gg-stat-card {
+    display: flex !important;
+    align-items: center;
+    gap: 16px;
+    min-height: 105px;
+    padding: 22px;
+    border-radius: 15px;
+    background: #111916;
+    border: 1px solid rgba(200, 161, 101, 0.16);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
+    transition: 0.25s ease;
+}
+
+.gold-collection-page .gg-stat-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(200, 161, 101, 0.38);
+}
+
+.gold-collection-page .gg-stat-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    background: rgba(200, 161, 101, 0.11);
+    color: #c8a165;
+    font-size: 20px;
+}
+
+.gold-collection-page .gg-stat-label {
+    display: block !important;
+    margin-bottom: 5px;
+    color: #929a96 !important;
+    font-size: 12px !important;
+    font-weight: 500;
+}
+
+.gold-collection-page .gg-stat-value {
+    display: block !important;
+    color: #ffffff !important;
+    font-size: 24px !important;
+    line-height: 1;
+    font-weight: 700;
+}
+
+
+/*======================================
+        MAIN PRODUCT CARD
+======================================*/
+
+.gold-collection-page .gg-card {
+    overflow: hidden;
+    margin: 0;
+    border-radius: 18px;
+    background: #111916;
+    border: 1px solid rgba(200, 161, 101, 0.20);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.20);
+}
+
+.gold-collection-page .gg-card-header {
+    padding: 20px 25px !important;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(200, 161, 101, 0.11),
+            rgba(200, 161, 101, 0.025)
+        );
+    border-bottom: 1px solid rgba(200, 161, 101, 0.16);
+}
+
+.gold-collection-page .gg-card-title {
+    margin: 0 !important;
+    color: #e5c487 !important;
+    font-family: "Cinzel", serif;
+    font-size: 16px !important;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.gold-collection-page .gg-card-body {
+    padding: 18px !important;
+}
+
+
+/*======================================
+        TABLE WRAPPER
+======================================*/
+
+.gold-collection-page .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 12px;
+}
+
+
+/*======================================
+        PRODUCT TABLE
+======================================*/
+
+.gold-collection-page .table-gg {
+    width: 100% !important;
+    min-width: 950px;
+    border-collapse: separate !important;
+    border-spacing: 0;
+}
+
+.gold-collection-page .table-gg thead th {
+    height: 52px;
+    padding: 0 18px !important;
+    background: #0b100e !important;
+    color: #c8a165 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(200, 161, 101, 0.22) !important;
+    vertical-align: middle;
+}
+
+.gold-collection-page .table-gg tbody tr {
+    background: transparent;
+    transition: 0.25s ease;
+}
+
+.gold-collection-page .table-gg tbody tr:hover {
+    background: rgba(200, 161, 101, 0.045);
+}
+
+.gold-collection-page .table-gg tbody td {
+    height: 105px;
+    padding: 15px 18px !important;
+    color: #e9e9e9 !important;
+    font-size: 13px !important;
+    font-weight: 500;
+    vertical-align: middle !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.075) !important;
+}
+
+.gold-collection-page .table-gg tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+
+/*======================================
+        NUMBER COLUMN
+======================================*/
+
+.gold-collection-page .table-gg tbody td:first-child {
+    width: 50px;
+    color: #777 !important;
+    font-size: 12px !important;
+    font-weight: 700;
+}
+
+
+/*======================================
+        PRODUCT IMAGE
+======================================*/
+
+.gold-collection-page .table-gg tbody td img {
+    display: block;
+    width: 72px !important;
+    height: 72px !important;
+    object-fit: cover;
+    border-radius: 11px !important;
+    border: 1px solid rgba(200, 161, 101, 0.28) !important;
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
+}
+
+.gold-collection-page .table-gg tbody tr:hover td img {
+    transform: scale(1.05);
+    border-color: #c8a165 !important;
+}
+
+
+/*======================================
+        PRODUCT NAME
+======================================*/
+
+.gold-collection-page .table-gg tbody td:nth-child(3) {
+    min-width: 200px;
+}
+
+.gold-collection-page .table-gg tbody td strong {
+    display: block;
+    color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1.5;
+}
+
+
+/*======================================
+        PRICE
+======================================*/
+
+.gold-collection-page .table-gg tbody td:nth-child(4) {
+    color: #d8b16e !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    white-space: nowrap;
+}
+
+
+/*======================================
+        DISPLAY ORDER
+======================================*/
+
+.gold-collection-page .table-gg tbody td:nth-child(5) {
+    color: #c9cfcb !important;
+    font-size: 13px !important;
+    font-weight: 600;
+}
+
+
+/*======================================
+        STATUS
+======================================*/
+
+.gold-collection-page .badge-gg {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 68px;
+    padding: 7px 12px !important;
+    border-radius: 50px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+}
+
+
+/*======================================
+        ACTION COLUMN
+======================================*/
+
+.gold-collection-page .table-gg tbody td:last-child {
+    min-width: 245px;
+}
+
+.gold-collection-page .table-gg tbody td:last-child > div {
+    display: flex !important;
+    align-items: center;
+    gap: 7px !important;
+    flex-wrap: wrap;
+}
+
+
+/*======================================
+        ACTION BUTTONS
+======================================*/
+
+.gold-collection-page .table-gg .btn-gg-gold,
+.gold-collection-page .table-gg .btn-gg-secondary {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 38px;
+    padding: 9px 13px !important;
+    border-radius: 8px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    white-space: nowrap;
+    transition: 0.25s ease;
+}
+
+
+/*======================================
+        EDIT BUTTON
+======================================*/
+
+.gold-collection-page .table-gg .btn-gg-gold {
+    background: #c8a165 !important;
+    color: #111 !important;
+    border: 1px solid #c8a165 !important;
+}
+
+.gold-collection-page .table-gg .btn-gg-gold:hover {
+    background: #dfbd7e !important;
+    border-color: #dfbd7e !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(200, 161, 101, 0.20);
+}
+
+
+/*======================================
+        SECONDARY BUTTONS
+======================================*/
+
+.gold-collection-page .table-gg .btn-gg-secondary {
+    background: rgba(255, 255, 255, 0.015) !important;
+    color: #e5e5e5 !important;
+    border: 1px solid rgba(255, 255, 255, 0.20) !important;
+}
+
+.gold-collection-page .table-gg .btn-gg-secondary:hover {
+    color: #c8a165 !important;
+    border-color: rgba(200, 161, 101, 0.55) !important;
+    background: rgba(200, 161, 101, 0.06) !important;
+    transform: translateY(-2px);
+}
+
+
+/*======================================
+        DELETE BUTTON
+======================================*/
+
+.gold-collection-page .table-gg form:last-child .btn-gg-secondary:hover {
+    color: #ff8d8d !important;
+    border-color: rgba(255, 100, 100, 0.45) !important;
+    background: rgba(255, 80, 80, 0.04) !important;
+}
+
+
+/*======================================
+        SCROLLBAR
+======================================*/
+
+.gold-collection-page .table-responsive::-webkit-scrollbar {
+    height: 6px;
+}
+
+.gold-collection-page .table-responsive::-webkit-scrollbar-track {
+    background: #080c0a;
+}
+
+.gold-collection-page .table-responsive::-webkit-scrollbar-thumb {
+    background: #8f713e;
+    border-radius: 20px;
+}
+
+.gold-collection-page .table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #c8a165;
+}
+
+
+/*======================================
+        RESPONSIVE
+======================================*/
+
+@media (max-width: 900px) {
+
+    .gold-collection-page {
+        padding: 25px 18px 40px;
+    }
+
+    .gold-collection-page .gg-page-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .gold-collection-page .gg-page-header .btn-gg-gold {
+        width: 100%;
+    }
+
+    .gold-collection-page .gg-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .gold-collection-page .gg-page-title {
+        font-size: 24px !important;
+    }
+
+    .gold-collection-page .gg-card-body {
+        padding: 10px !important;
+    }
+
+    .gold-collection-page .table-gg tbody td {
+        height: 90px;
+        padding: 12px !important;
+    }
+
+    .gold-collection-page .table-gg tbody td img {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+}
+
+/*======================================
+        COLLECTION ADMIN COMMON
+======================================*/
+
+.gold-collection-page .collection-admin-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.gold-collection-page .collection-admin-form {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+}
+
+.gold-collection-page .collection-admin-actions .btn-gg-small {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    min-width: 75px;
+    height: 36px;
+
+    padding: 0 12px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1;
+    white-space: nowrap;
+
+    box-sizing: border-box;
+}
+
+.gold-collection-page .collection-admin-image {
+    width: 70px !important;
+    height: 70px !important;
+
+    min-width: 70px;
+    min-height: 70px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 10px;
+}
+
+
+/*======================================
+        COLLECTION TABLE
+======================================*/
+
+.gold-collection-page .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.gold-collection-page .table-gg {
+    width: 100%;
+    min-width: 1000px;
+}
+
+.gold-collection-page .table-gg th,
+.gold-collection-page .table-gg td {
+    vertical-align: middle;
+}
+
+
+/*======================================
+        RESPONSIVE
+======================================*/
+
+@media (max-width: 900px) {
+
+    .gold-collection-page .collection-admin-actions {
+        flex-wrap: wrap;
+        white-space: normal;
+    }
+
+}

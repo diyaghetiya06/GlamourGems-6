@@ -1,0 +1,23 @@
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# XAMPP and local runtime files
+xampp/
+*.log
+
+# Generated uploads
+uploads/products/*
+uploads/banners/*
+uploads/curated-looks/*
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
